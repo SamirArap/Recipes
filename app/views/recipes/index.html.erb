@@ -1,21 +1,21 @@
 <div class="container">
-	<div class="well">
-		<h1>Searching for - <%= @search_term %></h1>
-	</div>
-
+	<div class="well"><h1>Searching for - <%= @search_term %></h1></div>
 
 	<% if @recipes.any? %>
 	<% @recipes.in_groups_of(4) do |group|%>
 		<div class="row">
 			<% group.each do |recipe| %>
 				<% if recipe %>
-					<div class="col-xs-12 col-md-3">
-						<div class="center">
-							<%= link_to image_tag(recipe["image_url"],size: "200x100"), recipe["f2f_url"]%>
-						
-							<p>Title: <%= link_to(sanitize(recipe["title"]), recipe["f2f_url"])%></p>
-						
-							<p>Social Rank <span class="badge"><%= recipe["social_rank"]%></span></p>
+					<div class="col-xs-6 col-md-3">
+						<div class="frame">
+							<div class="picture_frame">
+								<%= link_to image_tag(recipe["image_url"],size: "250x200"), recipe["f2f_url"]%>
+							
+								<p>Title: <%= link_to(sanitize(recipe["title"]), recipe["f2f_url"])%></p>
+							
+								<p> <span class="badge">Social Rank</span>
+								<span class="label label-danger"><%= number_with_precision(recipe["social_rank"])%></span></p>
+							</div>
 						</div>
 					</div>
 				<%end%>

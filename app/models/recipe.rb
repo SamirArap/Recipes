@@ -11,6 +11,8 @@ class Recipe
     def self.for keyword
     	get("/search", query: { q: keyword})["recipes"]
     end
+    
+    
 
 
 end
